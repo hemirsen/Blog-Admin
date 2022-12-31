@@ -25,22 +25,18 @@
     $(document).ready(function() {
         $('#summernote').summernote();
     });
-
     function Save() {
         var title = document.getElementById("title");
         var subtitle = document.getElementById("subtitle");
         var content = $('#summernote').summernote('code');
         var category = document.getElementById("Categories");
         var form = document.getElementById("form");
-
         var formData = new FormData(form);
         formData.append("title", title.value);
         formData.append("subtitle", subtitle.value);
         formData.append("content", content);
         formData.append("categoryid", category.value);
-
         var url = '/Blog/Save';
-
         fetch(url, {
                 method: 'POST',
                 body: formData

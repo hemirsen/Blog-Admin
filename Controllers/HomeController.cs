@@ -1,11 +1,18 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using AdminBlog.Models;
+using Microsoft.AspNetCore.Http;
+using AdminBlog.Filter;
 
-namespace AdminBlog.Controllers;
-
-
-     public class HomeController : Controller
+namespace AdminBlog.Controllers
+{
+    
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly BlogContext _context;
@@ -118,3 +125,4 @@ namespace AdminBlog.Controllers;
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+}
